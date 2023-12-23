@@ -29,21 +29,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function routeNotificationForTwilio(){
+    public function routeNotificationForTwilio()
+    {
         return $this->phone;
     }
 
-    public function driver(){
+    public function driver()
+    {
         return $this->hasOne(Driver::class);
     }
 
-    public function trips(){
+    public function trips()
+    {
         return $this->hasMany(Trip::class);
     }
-
-    // this is for how data should be presented when coming out from db
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    //     'password' => 'hashed',
-    // ];
 }

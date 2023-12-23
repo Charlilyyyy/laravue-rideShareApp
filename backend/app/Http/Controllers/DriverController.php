@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 
 class DriverController extends Controller
 {
-    public function show(Request $request){
-        
+    public function show(Request $request)
+    {
+        // return back the user and associated driver model
         $user = $request->user();
         $user->load('driver');
 
         return $user;
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $request->validate([
             'year' => 'required|numeric|between:2010,2024',
             'make' => 'required',

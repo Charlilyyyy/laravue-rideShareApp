@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79"
+  }
+}

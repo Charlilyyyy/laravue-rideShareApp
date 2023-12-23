@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Trip;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -10,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class TripStarted
+class TripStarted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -34,7 +36,7 @@ class TripStarted
     public function broadcastOn(): array
     {
         return [
-            new Channel('passenger_'.$this->user_id)
+            new Channel('passenger_' . $this->user->id)
         ];
     }
 }
